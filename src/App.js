@@ -1,36 +1,29 @@
 import React from "react";
-import logo from "./logo.svg";
-import tailwind from "./tailwindcss.svg";
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Pages } from "./Pages";
 
 function App() {
  return (
-  <div className="App flex items-center justify-center min-h-screen bg-gray-600">
-   <header className="App-header flex items-center justify-center flex-col">
-    <img src={logo} className="App-logo" alt="logo" />
-    <img src={tailwind} className="w-1/2" alt="logo" />
-    <p>
-     Edit <code>src/App.js</code> and save to reload.
-    </p>
-    <div className="link mt-5">
-     <a
-      className="App-link p-2 bg-teal-300 rounded mr-5 hover:bg-teal-400 hover:text-white"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-     >
-      Learn React
-     </a>
-     <a
-      className="App-link p-2 bg-teal-400 rounded hover:bg-teal-600 hover:text-white"
-      href="https://tailwindcss.com"
-      target="_blank"
-      rel="noopener noreferrer"
-     >
-      Learn Tailwind
-     </a>
-    </div>
-   </header>
-  </div>
+  <Router>
+   <div className="bg-gray-600 min-h-screen">
+    <nav className="mb-5">
+     <ul className="flex justify-center items-center gap-5">
+      <li>
+       <Link to="/" className="hover:text-teal-400">
+        Home
+       </Link>
+      </li>
+      <li>
+       <Link to="/about" className="hover:text-teal-400">
+        About
+       </Link>
+      </li>
+     </ul>
+    </nav>
+    <Pages />
+   </div>
+  </Router>
  );
 }
 
